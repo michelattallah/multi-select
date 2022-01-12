@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pure js multiselect demo</title>
+
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script src="multiselect.min.js"></script>
+    <style>
+        /* example of setting the width for multiselect */
+        #testSelect1_multiSelect {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <select id='testSelect1' multiple placeholder="Application Type">
+        <option value='1'>Item 1</option>
+        <option value='2'>Item 2</option>
+        <option value='3'>Item 3</option>
+        <option value='4'>Item 4</option>
+        <option value='5'>Item 5</option>
+    </select>
+
+    <div>
+        <button onclick="enable()">Enable</button>
+        <button onclick="disable()">Disable</button>
+    </div>
+
+    <script>
+        $('#testSelect1').multiselect()
+            .setCheckBoxClick("checkboxAll", function (target, args) {
+
+            })
+            .setCheckBoxClick("1", function (target, args) {
+                console.log("Checkbox for item with value '1' was clicked and got value ", args.checked);
+            });
+
+        function enable() {
+            $('#testSelect1').multiselect().setIsEnabled(true);
+        }
+
+        function disable() {
+            $('#testSelect1').multiselect().setIsEnabled(false);
+        }
+    </script>
+</body>
